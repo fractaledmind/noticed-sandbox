@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_160217) do
+ActiveRecord::Schema.define(version: 2021_01_22_162734) do
+
+  create_table "notification_channels", force: :cascade do |t|
+    t.string "name"
+    t.string "subject_template"
+    t.string "body_template"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "notification_requests", force: :cascade do |t|
+    t.integer "channel_id", null: false
+    t.text "params"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["channel_id"], name: "index_notification_requests_on_channel_id"
+  end
 
   create_table "notifications", force: :cascade do |t|
     t.string "recipient_type", null: false
@@ -36,4 +52,5 @@ ActiveRecord::Schema.define(version: 2021_01_22_160217) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "notification_requests", "notification_channels", column: "channel_id"
 end
