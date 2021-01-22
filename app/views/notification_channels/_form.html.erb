@@ -1,0 +1,32 @@
+<%= form_with(model: notification_channel, local: true) do |form| %>
+  <% if notification_channel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(notification_channel.errors.count, "error") %> prohibited this notification_channel from being saved:</h2>
+
+      <ul>
+        <% notification_channel.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subject_template %>
+    <%= form.text_field :subject_template %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body_template %>
+    <%= form.text_field :body_template %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

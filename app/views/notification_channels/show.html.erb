@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @notification_channel.name %>
+</p>
+
+<p>
+  <strong>Subject template:</strong>
+  <%= @notification_channel.subject_template %>
+</p>
+
+<p>
+  <strong>Body template:</strong>
+  <%= @notification_channel.body_template %>
+</p>
+
+<%= link_to 'Edit', edit_notification_channel_path(@notification_channel) %> |
+<%= link_to 'Back', notification_channels_path %>
