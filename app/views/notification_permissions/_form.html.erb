@@ -13,12 +13,7 @@
 
   <div class="field">
     <%= form.label :channel_id %>
-    <%= form.text_field :channel_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.select :channel_id, NotificationChannel.all.pluck(:name, :id) %>
   </div>
 
   <div class="field">
@@ -30,6 +25,8 @@
     <%= form.label :email %>
     <%= form.check_box :email %>
   </div>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div class="actions">
     <%= form.submit %>
