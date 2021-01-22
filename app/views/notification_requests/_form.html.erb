@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :channel_id %>
-    <%= form.text_field :channel_id %>
+    <%= form.select :channel_id, NotificationChannel.all.pluck(:name, :id) %>
   </div>
 
   <div class="field">
