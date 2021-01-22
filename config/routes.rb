@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :notification_channels
   devise_for :users
-  root to: "home#index"
+  root to: "notification_channels#new"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
