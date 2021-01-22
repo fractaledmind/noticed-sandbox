@@ -28,7 +28,7 @@ class NotificationRequestsController < ApplicationController
 
     respond_to do |format|
       if @notification_request.save
-        format.html { redirect_to @notification_request, notice: "Notification request was successfully created." }
+        format.html { redirect_to root_path, notice: "Notification request was successfully created." }
         format.json { render :show, status: :created, location: @notification_request }
       else
         format.html { render :new, status: :unprocessable_entity }
