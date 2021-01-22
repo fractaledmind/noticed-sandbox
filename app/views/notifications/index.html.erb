@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Notifications</h1>
+
+<%= link_to 'New Notification Request', new_notification_request_path %><br><br>
+<%= link_to 'View Notification Channels', notification_channels_path %><br><br>
+
+<% @notifications.each do |notification| %>
+  <details>
+    <summary><%= notification.to_notification.subject %></summary>
+    <div>
+      <%= notification.to_notification.body %>
+    </div>
+  </details>
+<% end %>
