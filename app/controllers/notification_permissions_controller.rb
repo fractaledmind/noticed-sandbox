@@ -7,20 +7,6 @@ class NotificationPermissionsController < ApplicationController
     @notification_permissions = NotificationPermission.all
   end
 
-  # GET /notification_permissions/1
-  # GET /notification_permissions/1.json
-  def show
-  end
-
-  # GET /notification_permissions/new
-  def new
-    @notification_permission = NotificationPermission.new
-  end
-
-  # GET /notification_permissions/1/edit
-  def edit
-  end
-
   # POST /notification_permissions
   # POST /notification_permissions.json
   def create
@@ -28,7 +14,7 @@ class NotificationPermissionsController < ApplicationController
 
     respond_to do |format|
       if @notification_permission.save
-        format.html { redirect_to @notification_permission, notice: "Notification permission was successfully created." }
+        format.html { redirect_to notification_permissions_path, notice: "Notification permission was successfully created." }
         format.json { render :show, status: :created, location: @notification_permission }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +28,7 @@ class NotificationPermissionsController < ApplicationController
   def update
     respond_to do |format|
       if @notification_permission.update(notification_permission_params)
-        format.html { redirect_to @notification_permission, notice: "Notification permission was successfully updated." }
+        format.html { redirect_to notification_permissions_path, notice: "Notification permission was successfully updated." }
         format.json { render :show, status: :ok, location: @notification_permission }
       else
         format.html { render :edit, status: :unprocessable_entity }
