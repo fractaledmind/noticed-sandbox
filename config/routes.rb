@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :notification_permissions
   resources :notifications, only: [:index]
   resources :notification_requests
   resources :notification_channels
