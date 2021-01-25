@@ -4,6 +4,6 @@ class Notification < ApplicationRecord
 
   def to_notification
     name = type.remove("Notifier")
-    NotificationChannel.find_by(name: name).to_noticed_class.with(params)
+    Notifications::Channel.find_by(name: name).to_noticed_class.with(params)
   end
 end

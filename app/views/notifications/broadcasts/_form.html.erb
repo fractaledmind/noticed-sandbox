@@ -1,0 +1,27 @@
+<%= form_with(model: notification_broadcast, local: true) do |form| %>
+  <% if notification_broadcast.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(notification_broadcast.errors.count, "error") %> prohibited this notification_broadcast from being saved:</h2>
+
+      <ul>
+        <% notification_broadcast.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :channel_id %>
+    <%= form.select :channel_id, Notifications::Channel.all.pluck(:name, :id) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :params %>
+    <%= form.text_area :params %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Channel:</strong>
+  <%= @notification_broadcast.channel_id %>
+</p>
+
+<p>
+  <strong>Params:</strong>
+  <%= @notification_broadcast.params %>
+</p>
+
+<%= link_to 'Edit', edit_notifications_broadcast_path(@notification_broadcast) %> |
+<%= link_to 'Back', notifications_broadcasts_path %>

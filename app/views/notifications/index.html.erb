@@ -2,9 +2,9 @@
 
 <h1>Notifications</h1>
 
-<%= link_to 'New Notification Request', new_notification_request_path %><br><br>
-<%= link_to 'View Notification Channels', notification_channels_path %><br><br>
-<%= link_to 'Manage Permissions', notification_permissions_path %><br><br>
+<%= link_to 'New Notification Broadcast', new_notifications_broadcast_path %><br><br>
+<%= link_to 'View Notification Channels', notifications_channels_path %><br><br>
+<%= link_to 'Manage Preferences', notifications_preferences_path %><br><br>
 
 <% @notifications.each do |notification| %>
   <details>

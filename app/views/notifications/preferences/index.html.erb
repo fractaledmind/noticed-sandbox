@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Notification Preferences</h1>
+
+
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));">
+  <strong>Channel</strong>
+  <strong style="text-align: center">Local</strong>
+  <strong style="text-align: center">Email</strong>
+  <strong></strong>
+</div>
+<% Notifications::Channel.find_each do |channel| %>
+  <%= form_with(model: Notifications::Preference.find_or_create_by(channel: channel, user: current_user), local: true) do |form| %>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));">
+      <div class="field">
+        <%= channel.name %>
+      </div>
+
+      <div class="field" style="text-align: center">
+        <%= form.check_box :local %>
+      </div>
+
+      <div class="field" style="text-align: center">
+        <%= form.check_box :email %>
+      </div>
+
+      <div class="actions">
+        <%= form.hidden_field :user_id, value: current_user.id %>
+        <%= form.hidden_field :channel_id, value: channel.id %>
+        <%= form.submit %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

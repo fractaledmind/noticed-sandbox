@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Channel:</strong>
+  <%= @notification_preference.channel_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @notification_preference.user_id %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @notification_preference.local %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @notification_preference.email %>
+</p>
+
+<%= link_to 'Edit', edit_notifications_preference_path(@notification_preference) %> |
+<%= link_to 'Back', notifications_preferences_path %>

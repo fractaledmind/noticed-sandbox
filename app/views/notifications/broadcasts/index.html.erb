@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Notification Broadcasts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Channel</th>
+      <th>Params</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notification_broadcasts.each do |notification_broadcast| %>
+      <tr>
+        <td><%= notification_broadcast.channel_id %></td>
+        <td><%= notification_broadcast.params %></td>
+        <td><%= link_to 'Show', notification_broadcast %></td>
+        <td><%= link_to 'Edit', edit_notifications_broadcast_path(notification_broadcast) %></td>
+        <td><%= link_to 'Destroy', notification_broadcast, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Notification Request', new_notifications_broadcast_path %>

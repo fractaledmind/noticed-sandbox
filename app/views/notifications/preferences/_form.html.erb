@@ -1,0 +1,34 @@
+<%= form_with(model: notification_preference, local: true) do |form| %>
+  <% if notification_preference.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(notification_preference.errors.count, "error") %> prohibited this notification_preference from being saved:</h2>
+
+      <ul>
+        <% notification_preference.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :channel_id %>
+    <%= form.select :channel_id, Notifications::Channel.all.pluck(:name, :id) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :local %>
+    <%= form.check_box :local %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.check_box :email %>
+  </div>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
