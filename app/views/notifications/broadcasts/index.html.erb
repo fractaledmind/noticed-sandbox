@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Notifications', notifications_path %><br><br>
+
 <h1>Notification Broadcasts</h1>
 
 <table>
@@ -14,7 +16,7 @@
   <tbody>
     <% @notification_broadcasts.each do |notification_broadcast| %>
       <tr>
-        <td><%= notification_broadcast.channel_id %></td>
+        <td><%= notification_broadcast.channel.name %></td>
         <td><%= notification_broadcast.params %></td>
         <td><%= link_to 'Show', notification_broadcast %></td>
         <td><%= link_to 'Edit', edit_notifications_broadcast_path(notification_broadcast) %></td>

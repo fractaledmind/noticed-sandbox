@@ -2,13 +2,16 @@ module Notifications
   class Channel < ApplicationRecord
     self.table_name = :notification_channels
 
+    has_many :preferences, class_name: "Notifications::Preference", dependent: :delete_all
+    has_many :broadcasts, class_name: "Notifications::Broadcast", dependent: :delete_all
+
     def to_noticed_class
       channel_subject_template = subject_template
       channel_body_template = body_template
       channel_id = id
 
       klass = Class.new(Noticed::Base) do
-        deliver_by :database, if: :local_notifications?, format: :some_format_method
+        deliver_by :database, if: :local_notifications?
         deliver_by :email, mailer: "NotificationMailer", if: :email_notifications?
 
         define_method :local_notifications? do

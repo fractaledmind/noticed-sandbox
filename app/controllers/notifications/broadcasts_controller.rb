@@ -57,7 +57,7 @@ module Notifications
     def destroy
       @notification_broadcast.destroy
       respond_to do |format|
-        format.html { redirect_to notification_broadcasts_url, notice: "Notification broadcast was successfully destroyed." }
+        format.html { redirect_to notifications_broadcasts_url, notice: "Notification broadcast was successfully destroyed." }
         format.json { head :no_content }
       end
     end

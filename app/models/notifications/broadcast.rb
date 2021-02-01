@@ -2,7 +2,7 @@ module Notifications
   class Broadcast < ApplicationRecord
     self.table_name = :notification_requests
 
-    belongs_to :channel, class_name: "Notifications::Channel"
+    belongs_to :channel, class_name: "Notifications::Channel", dependent: :destroy
 
     serialize :params, JSON
 
